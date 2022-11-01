@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "901603440084",
+    "project_id": "nba-app-39fca",
+    "storage_bucket": "nba-app-39fca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901603440084:android:40b56038ef3b68a243d241",
+        "android_client_info": {
+          "package_name": "com.example.nbaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901603440084-d749uii3j006jurscnu6f7i9u537ds0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUUUgtsb7LoqOv_2wGtQ2He5mRK9Ncvj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901603440084-d749uii3j006jurscnu6f7i9u537ds0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
