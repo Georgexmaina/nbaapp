@@ -52,28 +52,26 @@ class dashboard : AppCompatActivity() {
 
                     var dataobj = response.getJSONArray("data")
 
-                    for (i in 0 until dataobj.length() - 1) {
+                    for (x in 0 until dataobj.length()-1) {
 
-                        var alldata = dataobj.getJSONObject(i)
+                        var statsObj = dataobj.getJSONObject(x)
 
-                        var date = alldata.getString("date").toInt()
-                        var hometeam = alldata.getString("home_team")
-                        var awayteam = alldata.getString("visitor_team")
-                        var goalshome = alldata.getString("home_team_score").toInt()
-                        var goalsaway = alldata.getString("visitor_team_score").toInt()
+                        //var statsdate = statsObj.getString("date")
 
+                        //Log.d("DATT", statsdate.toString())
 
-                        var news = nbaitem()
-                        news.date = date
-                        news.hometeam = hometeam
-                        news.awayteam = awayteam
-                        news.goalsHome = goalshome
-                        news.goalsAway = goalsaway
+                        for (i in 0 until statsObj.length()-1) {
+
+                            var home_Stats_obj = statsObj.getString("home_team")
+
+                            Log.d("DATZ", home_Stats_obj.toString())
 
 
-                        nbalist!!.add(news)
+                        }
 
                     }
+
+                    //Log.d("DATAZ", dataobj.toString())
 
                     nbaAdapter!!.notifyDataSetChanged()
 

@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var edtemail: EditText
     private lateinit var edtpassword: EditText
     private lateinit var btnsignup: Button
+    private lateinit var btnlogin: Button
     private var mAuth: FirebaseAuth? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         edtemail = findViewById(R.id.edt_email)
         edtpassword = findViewById(R.id.edt_password)
         btnsignup = findViewById(R.id.btn_signup)
+        btnlogin = findViewById(R.id.btn_login)
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -34,25 +36,39 @@ class MainActivity : AppCompatActivity() {
             var email = edtemail.text.toString().trim()
             var password = edtpassword.text.toString().trim()
 
-            mAuth!!.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task: Task<AuthResult> ->
-                    if (task.isSuccessful) {
+            if (email.isEmpty() || password.isEmpty()) {
 
-                        Log.d("Create--->", task.toString())
+                Toast.makeText(this, "Empty Fields" , Toast.LENGTH_SHORT).show()
+            } else {
 
-                        Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
-                        var loginIntent = Intent(this, login::class.java)
-                        startActivity(loginIntent)
-                        finish()
-                    } else {
+                mAuth!!.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task: Task<AuthResult> ->
+                        if (task.isSuccessful) {
 
-                        // Log.d("Error--->", task.toString())
+                            Log.d("Create--->", task.toString())
 
-                        Toast.makeText(this, "Failed to Create Account", Toast.LENGTH_SHORT).show()
-                        Log.d("Error==>", task.exception.toString())
+                            Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
+                            var loginIntent = Intent(this, login::class.java)
+                            startActivity(loginIntent)
+                            finish()
+                        } else {
+
+                            // Log.d("Error--->", task.toString())
+
+                            Toast.makeText(this, "Failed to Create Account", Toast.LENGTH_SHORT).show()
+                            Log.d("Error==>", task.exception.toString())
+                        }
+                        btnlogin.setOnClickListener {
+                            Toast.makeText(this,"Proceeding To Next Page", Toast.LENGTH_SHORT).show()
+                            var intent = Intent(this, login::class.java)
+                            startActivity(intent)
+                        }
+
                     }
 
-                }
+            }
+
+
         }
     }
 }
