@@ -32,6 +32,12 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
+        btnlogin.setOnClickListener {
+            Toast.makeText(this,"Please wait", Toast.LENGTH_SHORT).show()
+            var intent = Intent(this, login::class.java)
+            startActivity(intent)
+        }
+
         btnsignup.setOnClickListener {
             var email = edtemail.text.toString().trim()
             var password = edtpassword.text.toString().trim()
@@ -58,11 +64,7 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(this, "Failed to Create Account", Toast.LENGTH_SHORT).show()
                             Log.d("Error==>", task.exception.toString())
                         }
-                        btnlogin.setOnClickListener {
-                            Toast.makeText(this,"Proceeding To Next Page", Toast.LENGTH_SHORT).show()
-                            var intent = Intent(this, login::class.java)
-                            startActivity(intent)
-                        }
+
 
                     }
 

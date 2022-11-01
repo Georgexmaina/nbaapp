@@ -56,18 +56,30 @@ class dashboard : AppCompatActivity() {
 
                         var statsObj = dataobj.getJSONObject(x)
 
-                        //var statsdate = statsObj.getString("date")
+                        var statsdate= statsObj.getString("date").toInt()
+                        var statshometeam = statsObj.getString("home_team")
 
-                        //Log.d("DATT", statsdate.toString())
 
                         for (i in 0 until statsObj.length()-1) {
 
                             var home_Stats_obj = statsObj.getString("home_team")
 
-                            Log.d("DATZ", home_Stats_obj.toString())
+                           //Log.d("HOME", home_Stats_obj.toString())
+
 
 
                         }
+                        var stats_homescore = statsObj.getString("home_team_score").toInt()
+
+                        //Log.d("HOMESCORE",stats_homescore.toString())
+
+                        var nba_news = nbaitem()
+                        nba_news.date = statsdate
+                        nba_news.hometeam =statshometeam
+                        nba_news.goalsHome = stats_homescore
+
+
+                        nbalist!!.add(nba_news)
 
                     }
 

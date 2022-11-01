@@ -35,17 +35,17 @@ class nbaAdapter(private val list: ArrayList<nbaitem>, private val context : Con
         //fetch all of our views
         var txt_date = itemView.findViewById<TextView>(R.id.txtDate)
         var txt_hometeam = itemView.findViewById<TextView>(R.id.txt_homeTeam)
-        var txt_awayteam = itemView.findViewById<TextView>(R.id.txt_visitTeam)
+
         var txt_goalshome = itemView.findViewById<TextView>(R.id.txtgoalsHome)
-        var txt_goalsaway = itemView.findViewById<TextView>(R.id.txtgoalsAway)
+
 
 
         fun bindViews(news_item: nbaitem) {
             txt_date.text = news_item.date.toString()
             txt_hometeam.text = news_item.hometeam
-            txt_awayteam.text = news_item.awayteam
+
             txt_goalshome.text = news_item.goalsHome.toString()
-            txt_goalsaway.text = news_item.goalsAway.toString()
+
 
         }
     }

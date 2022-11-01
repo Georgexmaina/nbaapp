@@ -76,7 +76,7 @@
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="140dp"
             android:background="#C9082A"
             android:text="login"
             android:textColor="#fff" />

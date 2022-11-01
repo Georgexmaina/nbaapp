@@ -5,9 +5,9 @@ class nbaitem() {
 
     var date:Int? = null
     var hometeam:String ? = null
-    var awayteam:String ? = null
+
     var goalsHome:Int? = null
-    var goalsAway:Int? = null
+
 
 
 
@@ -15,9 +15,9 @@ class nbaitem() {
 
         this.date = date
         this.hometeam = hometeam
-        this.awayteam = awayteam
+
         this.goalsHome= goalsHome
-        this.goalsAway = goalsAway
+
 
 
 
